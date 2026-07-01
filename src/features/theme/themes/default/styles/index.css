@@ -5,84 +5,102 @@
 @import "@fontsource-variable/noto-serif-sc";
 @import "@fontsource-variable/jetbrains-mono";
 
+/* ===== Global Font Settings ===== */
 @layer base {
   :root {
+    /* ===== Modern Indigo Color Scheme ===== */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 224 20% 10%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 220 20% 97%;
+    --muted-foreground: 220 10% 45%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 224 20% 10%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
+    --border: 220 20% 92%;
+    --input: 220 20% 90%;
 
-    --primary: 240 10% 3.9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 224 20% 15%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 239 84% 97%;
+    --accent-foreground: 239 60% 40%;
 
-    --ring: 240 10% 3.9%;
+    --ring: 239 84% 67%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
 
-    --info: 221.2 83.2% 53.3%;
+    --info: 221 83% 53%;
     --info-foreground: 0 0% 100%;
 
-    --selection: 240 10% 3.9%;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --selection: 239 84% 67%;
     --selection-foreground: 0 0% 100%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 20% 10%;
+
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 224 20% 5%;
+    --foreground: 220 20% 96%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 224 20% 8%;
+    --popover-foreground: 220 20% 96%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
+    --border: 220 15% 18%;
+    --input: 220 15% 20%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 10% 3.9%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 220 20% 90%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 239 40% 18%;
+    --accent-foreground: 239 60% 80%;
 
-    --ring: 240 4.9% 83.9%;
+    --ring: 239 84% 67%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 63% 40%;
+    --destructive-foreground: 0 0% 100%;
 
     --warning: 48 96% 89%;
-    --warning-foreground: 38 92% 50%;
+    --warning-foreground: 38 92% 30%;
 
-    --info: 217.2 91.2% 59.8%;
+    --info: 217 91% 60%;
     --info-foreground: 0 0% 100%;
 
-    --selection: 0 0% 100%;
-    --selection-foreground: 240 10% 3.9%;
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --selection: 239 84% 67%;
+    --selection-foreground: 0 0% 100%;
+
+    --card: 224 20% 8%;
+    --card-foreground: 220 20% 96%;
   }
 }
 
 mark {
-  @apply bg-muted text-inherit px-1 py-0.5 rounded-sm transition-colors border-b border-border;
+  @apply bg-accent text-accent-foreground px-1.5 py-0.5 rounded-md font-medium border-0;
 }
 
 /* Theme Transition: Disable default cross-fade when 'theme-transition' class is present */
@@ -95,12 +113,12 @@ mark {
 @theme {
   --tw-transition-duration: 0.3s;
 
-  /* Awwwards Style Font Families */
-  --font-serif: "Noto Serif SC Variable", serif;
-  --font-sans: "Noto Sans SC Variable", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  /* ===== Elegant Font Stack ===== */
+  --font-serif: "Noto Serif SC Variable", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+  --font-sans: "Noto Sans SC Variable", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "Fira Code", "Consolas", ui-monospace, monospace;
 
-  /* Semantic Colors mapping to CSS variables */
+  /* ===== Semantic Colors ===== */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-muted: hsl(var(--muted));
@@ -116,18 +134,18 @@ mark {
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
   --color-ring: hsl(var(--ring));
-
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
-
   --color-warning: hsl(var(--warning));
   --color-warning-foreground: hsl(var(--warning-foreground));
-
   --color-info: hsl(var(--info));
   --color-info-foreground: hsl(var(--info-foreground));
-
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
   --color-selection: hsl(var(--selection));
   --color-selection-foreground: hsl(var(--selection-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
 }
 
 @layer base {
@@ -136,33 +154,45 @@ mark {
     transition:
       background-color 0.5s ease-in-out,
       color 0.5s ease-in-out;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-feature-settings: "kern", "liga", "calt";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    @apply bg-selection text-selection-foreground;
+    @apply bg-selection/30 text-foreground;
   }
 
   p {
     @apply leading-relaxed;
   }
 
-  /* Typography Defaults */
+  /* ===== Typography ===== */
   .default-theme {
     h1 {
-      @apply scroll-m-20 text-4xl font-serif font-medium tracking-tight lg:text-5xl;
+      @apply scroll-m-20 text-4xl font-serif font-bold tracking-tight lg:text-5xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent;
+      line-height: 1.2;
     }
 
     h2 {
-      @apply scroll-m-20 text-3xl font-serif font-medium tracking-tight first:mt-0;
+      @apply scroll-m-20 text-3xl font-serif font-semibold tracking-tight first:mt-0 relative pb-4;
+      line-height: 1.3;
+    }
+
+    h2::after {
+      content: "";
+      @apply absolute bottom-0 left-0 w-12 h-1 rounded-full bg-primary/60;
     }
 
     h3 {
-      @apply scroll-m-20 text-2xl font-serif font-medium tracking-tight;
+      @apply scroll-m-20 text-2xl font-serif font-semibold tracking-tight;
+      line-height: 1.35;
     }
 
     h4 {
-      @apply scroll-m-20 text-xl font-serif font-medium tracking-tight;
+      @apply scroll-m-20 text-xl font-serif font-semibold tracking-tight;
     }
 
     h5 {
@@ -170,27 +200,56 @@ mark {
     }
 
     h6 {
-      @apply scroll-m-20 text-base font-serif font-medium tracking-tight;
+      @apply scroll-m-20 text-base font-serif font-medium tracking-tight text-muted-foreground;
     }
 
     p {
-      @apply leading-7 not-first:mt-6;
+      @apply leading-[1.8] not-first:mt-6 text-[15px];
     }
 
     blockquote {
-      @apply mt-6 border-l-2 pl-6 italic text-muted-foreground;
+      @apply mt-6 border-l-4 border-primary/40 pl-6 italic text-muted-foreground bg-accent/50 py-4 pr-4 rounded-r-lg;
+      border-left-width: 4px;
+    }
+
+    blockquote p {
+      @apply mt-0 not-first:mt-2;
     }
 
     ul {
-      @apply my-6 ml-6 list-disc [&>li]:mt-2;
+      @apply my-6 ml-6 list-[circle] [&>li]:mt-2 [&>li]:text-[15px];
+    }
+
+    ul li::marker {
+      color: hsl(var(--primary) / 0.6);
     }
 
     ol {
-      @apply my-6 ml-6 list-decimal [&>li]:mt-2;
+      @apply my-6 ml-6 list-decimal [&>li]:mt-2 [&>li]:text-[15px];
+    }
+
+    ol li::marker {
+      @apply font-medium text-primary/70;
     }
 
     code {
-      @apply relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+      @apply relative rounded-md px-[0.4rem] py-[0.25rem] font-mono text-sm font-medium bg-accent text-accent-foreground border border-accent-foreground/10;
+    }
+
+    pre {
+      @apply rounded-xl border border-border/50 shadow-sm overflow-hidden;
+    }
+
+    pre code {
+      @apply rounded-none border-0 bg-transparent p-0 text-[13px];
+    }
+
+    a {
+      @apply text-primary/80 hover:text-primary transition-colors underline underline-offset-4 decoration-primary/30 hover:decoration-primary;
+    }
+
+    img {
+      @apply rounded-xl;
     }
 
     /* KaTeX / Mathematics */
@@ -205,6 +264,7 @@ mark {
       overflow-x: auto;
       overflow-y: hidden;
       text-align: center;
+      @apply bg-accent/30 rounded-xl py-4;
     }
   }
 
@@ -212,9 +272,9 @@ mark {
     @apply text-sm font-medium leading-none;
   }
 
-  /* Minimalist Custom Scrollbar */
+  /* ===== Minimalist Custom Scrollbar ===== */
   ::-webkit-scrollbar {
-    @apply w-1.5 h-1.5;
+    @apply w-2 h-2;
   }
 
   ::-webkit-scrollbar-track {
@@ -222,21 +282,17 @@ mark {
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted rounded-full transition-colors;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-accent;
+    @apply bg-muted-foreground/20 rounded-full transition-colors hover:bg-muted-foreground/40;
   }
 }
 
-/* Tiptap Placeholder */
+/* ===== Tiptap Editor Styles ===== */
 .tiptap p.is-editor-empty:first-child::before {
-  @apply text-muted-foreground font-serif italic float-left h-0 pointer-events-none;
+  @apply text-muted-foreground/50 font-serif italic float-left h-0 pointer-events-none;
   content: attr(data-placeholder);
 }
 
-/* Tiptap List Item Fix - 移除 <p> 的多余间距，改善点击体验 */
+/* Tiptap List Item Fix */
 .ProseMirror li > p {
   @apply m-0;
 }
@@ -246,26 +302,25 @@ mark {
 }
 
 /* Table Extension Styles */
-
 .ProseMirror table {
-  @apply border-collapse my-6 overflow-hidden table-fixed w-full;
+  @apply border-collapse my-6 overflow-hidden table-fixed w-full rounded-xl;
 }
 
 .ProseMirror td,
 .ProseMirror th {
-  @apply border border-border box-border min-w-[1em] px-2.5 py-2 relative align-top;
+  @apply border border-border/60 box-border min-w-[1em] px-3 py-2.5 relative align-top;
 }
 
 .ProseMirror th {
-  @apply bg-muted font-medium text-left text-muted-foreground;
+  @apply bg-muted font-semibold text-left text-muted-foreground/80 text-sm uppercase tracking-wider;
 }
 
 .ProseMirror .selectedCell:after {
-  @apply absolute inset-0 content-[''] z-2 pointer-events-none bg-selection opacity-10;
+  @apply absolute inset-0 content-[''] z-2 pointer-events-none bg-primary/10;
 }
 
 .ProseMirror .column-resize-handle {
-  @apply absolute -bottom-0.5 -right-0.5 top-0 w-1 z-20 bg-blue-500 pointer-events-none;
+  @apply absolute -bottom-0.5 -right-0.5 top-0 w-1 z-20 bg-primary/60 pointer-events-none;
 }
 
 .ProseMirror table p {
@@ -288,7 +343,7 @@ mark {
 
 @layer utilities {
   .custom-scrollbar::-webkit-scrollbar {
-    @apply w-1 h-1;
+    @apply w-1.5 h-1.5;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
@@ -296,23 +351,27 @@ mark {
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-muted rounded-full transition-colors;
+    @apply bg-muted-foreground/30 rounded-full transition-colors hover:bg-muted-foreground/50;
   }
 
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply bg-accent;
+  .glass-panel {
+    @apply bg-background/80 backdrop-blur-xl border border-border/40;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
-/* Comment Highlight for Anchor Navigation */
+/* ===== Comment Highlight Animation ===== */
 @keyframes highlight-flash {
   0% {
-    background-color: hsl(var(--foreground));
-    color: hsl(var(--background));
+    background-color: hsl(var(--primary) / 0.15);
+    color: inherit;
   }
   15% {
-    background-color: hsl(var(--foreground));
-    color: hsl(var(--background));
+    background-color: hsl(var(--primary) / 0.15);
+    color: inherit;
   }
   100% {
     background-color: transparent;
@@ -321,6 +380,35 @@ mark {
 }
 
 .highlight-active {
-  @apply relative scroll-mt-25;
+  @apply relative scroll-mt-25 rounded-lg;
   animation: highlight-flash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ===== Subtle Entrance Animation ===== */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in-up 0.4s ease-out both;
+}
+
+/* ===== Card Hover Effect ===== */
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+.card-hover:hover {
+  @apply -translate-y-1 shadow-lg;
+}
+
+/* ===== Gradient Text Utility ===== */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent;
 }

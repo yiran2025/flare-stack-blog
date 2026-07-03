@@ -1,0 +1,97 @@
+/* Shared configuration and variables across all themes */
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
+@custom-variant system (&:is(.system *));
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer base {
+  /* Global Shiki Dark Mode Override */
+  html.dark .shiki,
+  html.dark .shiki span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+/* ===== Global Typography Enhancements ===== */
+@layer base {
+  /* Smooth scrolling for the whole page */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Better font rendering for all elements */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Prevent layout shift from scrollbar */
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  /* Improved focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring, 240 10% 3.9%) / 0.5);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Smooth image rendering */
+  img {
+    image-rendering: auto;
+  }
+
+  /* Remove default margin/padding on figures */
+  figure {
+    margin: 0;
+  }
+
+  /* Better horizontal rule styling */
+  hr {
+    border-style: solid;
+    border-width: 0;
+  }
+
+  /* Ensure code elements stay inline by default */
+  :not(pre) > code {
+    overflow-wrap: break-word;
+  }
+
+  /* Improve table text rendering */
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-weight: normal;
+  }
+}

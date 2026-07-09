@@ -8,6 +8,8 @@ export interface NavOption {
   label: string;
   to: keyof FileRoutesByTo;
   id: string;
+  +  /** 外部链接 URL，设置后 to 字段仅作占位，实际渲染为 <a> 标签 */
++  href?: string;
 }
 
 export interface UserInfo {

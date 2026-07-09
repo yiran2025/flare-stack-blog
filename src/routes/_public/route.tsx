@@ -36,6 +36,7 @@ function PublicLayout() {
   const navOptions = [
     { label: m.nav_home(), to: "/" as const, id: "home" },
     { label: m.nav_posts(), to: "/posts" as const, id: "posts" },
+    { label: m.nav_learn_english(), to: "/posts" as const, id: "learn-english", href: "https://en.blog88.ccwu.cc/" },
     {
       label: m.nav_friend_links(),
       to: "/friend-links" as const,

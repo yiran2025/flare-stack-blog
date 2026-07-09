@@ -79,20 +79,33 @@ export function Navbar({
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
-            {navOptions.map((option) => (
-              <Link
-                key={option.id}
-                to={option.to}
-                className="fuwari-expand-animation rounded-lg h-11 font-bold px-5 active:scale-95 flex items-center fuwari-text-75 hover:text-(--fuwari-primary)"
-                activeProps={{
-                  className: "!text-[var(--fuwari-primary)]",
-                }}
-              >
-                {option.label}
-              </Link>
-            ))}
+                    <nav className="hidden md:flex items-center gap-1">
+            {navOptions.map((option) =>
+              option.href ? (
+                <a
+                  key={option.id}
+                  href={option.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="fuwari-expand-animation rounded-lg h-11 font-bold px-5 active:scale-95 flex items-center fuwari-text-75 hover:text-(--fuwari-primary)"
+                >
+                  {option.label}
+                </a>
+              ) : (
+                <Link
+                  key={option.id}
+                  to={option.to}
+                  className="fuwari-expand-animation rounded-lg h-11 font-bold px-5 active:scale-95 flex items-center fuwari-text-75 hover:text-(--fuwari-primary)"
+                  activeProps={{
+                    className: "!text-[var(--fuwari-primary)]",
+                  }}
+                >
+                  {option.label}
+                </Link>
+              ),
+            )}
           </nav>
+
 
           <div className="flex items-center gap-1">
             <Link

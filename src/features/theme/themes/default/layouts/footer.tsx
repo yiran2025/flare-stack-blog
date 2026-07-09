@@ -42,6 +42,29 @@ export function Footer({ navOptions }: FooterProps) {
               {option.label}
             </Link>
           ))}
+            {navOptions.map((option) =>
++            option.href ? (
++              <a
++                key={option.id}
++                href={option.href}
++                target="_blank"
++                rel="noreferrer"
++                className="hover:text-foreground transition-colors"
++              >
++                {option.label}
++              </a>
++            ) : (
++              <Link
++                key={option.id}
++                to={option.to}
++                className="hover:text-foreground transition-colors"
++              >
++                {option.label}
++              </Link>
++            ),
++          )}
+
+          
           {siteConfig.social
             .filter((link) => link.url)
             .map((link, i) => {

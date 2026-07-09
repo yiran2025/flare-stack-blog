@@ -49,42 +49,31 @@ export function Navbar({
 
           {/* Center: Main Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navOptions.map((option) => (
-              <Link
-                key={option.id}
-                to={option.to}
-                className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 hover:text-foreground transition-colors"
-                activeProps={{
-                  className: "!text-foreground",
-                }}
-              >
-                {option.label}
-              </Link>
-            ))}
+    
             {navOptions.map((option) =>
-+              option.href ? (
-+                <a
-+                  key={option.id}
-+                  href={option.href}
-+                  target="_blank"
-+                  rel="noreferrer"
-+                  className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 hover:text-foreground transition-colors"
-+                >
-+                  {option.label}
-+                </a>
-+              ) : (
-+                <Link
-+                  key={option.id}
-+                  to={option.to}
-+                  className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 hover:text-foreground transition-colors"
-+                  activeProps={{
-+                    className: "!text-foreground",
-+                  }}
-+                >
-+                  {option.label}
-+                </Link>
-+              ),
-+            )}
+              option.href ? (
+                <a
+                  key={option.id}
+                  href={option.href}
+                 target="_blank"
+                 rel="noreferrer"
+                  className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 hover:text-foreground transition-colors"
+               >
+                  {option.label}
+                </a>
+              ) : (
+               <Link
+                  key={option.id}
+                  to={option.to}
+                 className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground/60 hover:text-foreground transition-colors"
+                  activeProps={{
+                    className: "!text-foreground",
+                  }}
+                >
+                  {option.label}
+               </Link>
+              ),
+           )}
           </nav>
 
           {/* Right: Actions */}

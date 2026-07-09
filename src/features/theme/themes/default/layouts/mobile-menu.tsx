@@ -60,42 +60,60 @@ export function MobileMenu({
 
         {/* Links: Terminal Style */}
         <nav className="flex-1 flex flex-col justify-center space-y-6 md:space-y-8 font-mono">
-          {navOptions.map((item, idx) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              onClick={onClose}
-              className={`group flex items-center gap-4 transition-all duration-500 ${
-                isOpen
-                  ? "translate-x-0 opacity-100"
-                  : "-translate-x-8 opacity-0"
-              }`}
-              activeProps={{
-                className: "!text-foreground",
-              }}
-              style={{ transitionDelay: isOpen ? `${50 + idx * 50}ms` : "0ms" }}
-            >
-              {({ isActive }) => (
-                <>
-                  <span
-                    className={`text-sm md:text-base text-muted-foreground/50 transition-colors ${
-                      isActive
-                        ? "text-foreground"
-                        : "group-hover:text-foreground"
-                    }`}
-                  >
-                    &gt;_
-                  </span>
-                  <span className="text-3xl md:text-5xl font-bold tracking-tight text-muted-foreground transition-colors group-hover:text-foreground">
-                    {item.label}
-                    {isActive && (
-                      <span className="animate-pulse ml-2 inline-block w-3 h-8 bg-foreground -mb-1 align-middle" />
-                    )}
-                  </span>
-                </>
-              )}
-            </Link>
-          ))}
+         {navOptions.map((item, idx) =>
+  item.href ? (
+    <a
+      key={item.id}
+      href={item.href}
+      target="_blank"
+      rel="noreferrer"
+      onClick={onClose}
+      className={`group flex items-center gap-4 transition-all duration-500 ${
+        isOpen
+          ? "translate-x-0 opacity-100"
+          : "-translate-x-8 opacity-0"
+      }`}
+      style={{ transitionDelay: isOpen ? `${50 + idx * 50}ms` : "0ms" }}
+    >
+      <span className="text-sm md:text-base text-muted-foreground/50 group-hover:text-foreground transition-colors">
+        &gt;_
+      </span>
+      <span className="text-3xl md:text-5xl font-bold tracking-tight text-muted-foreground group-hover:text-foreground transition-colors">
+        {item.label}
+      </span>
+    </a>
+  ) : (
+    <Link
+      key={item.id}
+      to={item.to}
+      onClick={onClose}
+      className={`group flex items-center gap-4 transition-all duration-500 ${
+        isOpen
+          ? "translate-x-0 opacity-100"
+          : "-translate-x-8 opacity-0"
+      }`}
+      activeProps={{ className: "!text-foreground" }}
+      style={{ transitionDelay: isOpen ? `${50 + idx * 50}ms` : "0ms" }}
+    >
+      {({ isActive }) => (
+        <>
+          <span className={`text-sm md:text-base text-muted-foreground/50 transition-colors ${
+            isActive ? "text-foreground" : "group-hover:text-foreground"
+          }`}>
+            &gt;_
+          </span>
+          <span className="text-3xl md:text-5xl font-bold tracking-tight text-muted-foreground transition-colors group-hover:text-foreground">
+            {item.label}
+            {isActive && (
+              <span className="animate-pulse ml-2 inline-block w-3 h-8 bg-foreground -mb-1 align-middle" />
+            )}
+          </span>
+        </>
+      )}
+    </Link>
+    ),
+    )}
+
 
           {user?.role === "admin" && (
             <Link
